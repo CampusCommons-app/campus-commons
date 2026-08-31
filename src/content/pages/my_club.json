@@ -1,0 +1,98 @@
+{
+  "ANNOUNCEMENTS": [
+    {
+      "id": "a1",
+      "title": "Bloomberg Terminal access extended",
+      "body": "Great news — the library has extended Bloomberg Terminal hours to 10 PM on weekdays for club members. Show your student ID and mention Finance Club.",
+      "author": "Alex Chen · President",
+      "time": "2 hours ago",
+      "pinned": true
+    },
+    {
+      "id": "a2",
+      "title": "Stock Pitch Competition — team sign-ups open",
+      "body": "Teams of 2–3. Sign up by Sep 3 to secure your slot. Top 3 teams present to a panel of alumni judges. Cash prizes for 1st and 2nd place.",
+      "author": "Maya Patel · VP Events",
+      "time": "Yesterday",
+      "pinned": false
+    },
+    {
+      "id": "a3",
+      "title": "Welcome back, Fall 2026!",
+      "body": "Kick-off meeting is Sep 5 at 6 PM in LaCava 220. Come meet the new exec board, hear about this semester's events, and grab some free merch.",
+      "author": "Alex Chen · President",
+      "time": "3 days ago",
+      "pinned": false
+    }
+  ],
+  "ATTENDANCE_HISTORY": [
+    {
+      "id": "h1",
+      "title": "Kick-off Meeting",
+      "date": "Sep 5, 2025",
+      "attended": true
+    },
+    {
+      "id": "h2",
+      "title": "Bloomberg Workshop",
+      "date": "Sep 12, 2025",
+      "attended": true
+    },
+    {
+      "id": "h3",
+      "title": "Alumni Networking Night",
+      "date": "Sep 18, 2025",
+      "attended": false
+    },
+    {
+      "id": "h4",
+      "title": "Stock Pitch Competition",
+      "date": "Sep 26, 2025",
+      "attended": true
+    },
+    {
+      "id": "h5",
+      "title": "Midterm Study Break Social",
+      "date": "Oct 10, 2025",
+      "attended": true
+    },
+    {
+      "id": "h6",
+      "title": "CFA Info Session",
+      "date": "Oct 17, 2025",
+      "attended": false
+    },
+    {
+      "id": "h7",
+      "title": "Case Competition Prep",
+      "date": "Oct 24, 2025",
+      "attended": true
+    },
+    {
+      "id": "h8",
+      "title": "Big 4 Recruiting Panel",
+      "date": "Nov 7, 2025",
+      "attended": true
+    },
+    {
+      "id": "h9",
+      "title": "End-of-Semester Social",
+      "date": "Nov 21, 2025",
+      "attended": true
+    }
+  ],
+  "tabs": [
+    {
+      "id": "events",
+      "label": "Upcoming events"
+    },
+    {
+      "id": "announcements",
+      "label": "Announcements"
+    },
+    {
+      "id": "attendance",
+      "label": "My attendance"
+    }
+  ]
+}

@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campus Commons — Club Life at Bentley University</title>
+  <meta name="description" content="See which clubs are thriving at Bentley University. Real attendance data, live health scores, and a daily news feed — Campus Commons is the campus platform students actually want." />
+  <link rel="canonical" href="https://campuscommons.app/" />
+  <meta property="og:title" content="Campus Commons — Club Life at Bentley University" />
+  <meta property="og:description" content="Real attendance data, live health scores, and a daily news feed. Campus Commons is the campus platform students actually want." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://campuscommons.app/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── CSS Variables ── */
+    :root {
+      --primary: hsl(207, 100%, 20%);
+      --primary-fg: hsl(0, 0%, 100%);
+      --accent: hsl(41, 100%, 48%);
+      --accent-fg: hsl(0, 0%, 100%);
+      --bg: hsl(0, 0%, 100%);
+      --fg: hsl(0, 0%, 4%);
+      --card: hsl(0, 0%, 100%);
+      --card-fg: hsl(0, 0%, 4%);
+      --muted: hsl(204, 59%, 86%);
+      --muted-fg: hsl(0, 0%, 45%);
+      --border: hsl(0, 0%, 85%);
+      --success: hsl(160, 84%, 39%);
+      --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-heading: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+      --radius: 0.5rem;
+    }
+
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    ul { list-style: none; }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    @media (min-width: 640px) { .container { padding: 0 2rem; } }
+
+    /* ── Header / Nav ── */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--primary);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: var(--font-heading);
+      font-size: 1.125rem;
+      font-weight: 800;
+      color: var(--primary-fg);
+      letter-spacing: -0.02em;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .nav-link {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.7);
+      padding: 0.5rem 0.875rem;
+      border-radius: var(--radius);
+      transition: color 0.15s, background 0.15s;
+    }
+    .nav-link:hover { color: #fff; background: rgba(255,255,255,0.06); }
+    .btn-nav {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--primary);
+      background: var(--accent);
+      padding: 0.5rem 1.125rem;
+      border-radius: var(--radius);
+      transition: filter 0.15s, transform 0.1s;
+    }
+    .btn-nav:hover { filter: brightness(1.1); }
+    .btn-nav:active { transform: scale(0.97); }
+    @media (max-width: 640px) {
+      .nav-links .nav-link { display: none; }
+    }
+
+    /* ── Buttons ── */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: var(--accent);
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.875rem;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      transition: filter 0.15s, transform 0.1s;
+    }
+    .btn-primary:hover { filter: brightness(1.1); }
+    .btn-primary:active { transform: scale(0.97); }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: transparent;
+      color: rgba(255,255,255,0.85);
+      font-weight: 600;
+      font-size: 0.875rem;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,0.3);
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .btn-outline:hover { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.05); }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 6rem 0 4rem;
+      background: var(--primary);
+      overflow: hidden;
+    }
+    .hero-grid-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    .hero-blob {
+      position: absolute;
+      top: 25%;
+      right: 0;
+      width: 24rem;
+      height: 24rem;
+      border-radius: 50%;
+      background: rgba(245,168,0,0.08);
+      filter: blur(80px);
+      transform: translateX(30%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+      width: 100%;
+    }
+    @media (min-width: 1024px) {
+      .hero-inner { grid-template-columns: 1fr 1fr; gap: 4rem; }
+    }
+    .hero-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      background: rgba(245,168,0,0.2);
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .hero-h1 {
+      font-size: clamp(2.25rem, 5vw, 3.75rem);
+      font-weight: 800;
+      color: var(--primary-fg);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.25rem;
+    }
+    .hero-sub {
+      font-size: 1.125rem;
+      color: rgba(255,255,255,0.7);
+      max-width: 32rem;
+      line-height: 1.7;
+      margin-bottom: 1.75rem;
+    }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
+    /* ── Mock Club Card ── */
+    .mock-card {
+      position: relative;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+      backdrop-filter: blur(8px);
+    }
+    .mock-card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.75rem; }
+    .mock-card-dot { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--accent); display: inline-block; margin-right: 0.375rem; }
+    .mock-card-tag { font-size: 0.75rem; font-weight: 500; color: var(--accent); }
+    .mock-card-name { font-size: 1.125rem; font-weight: 700; color: var(--primary-fg); margin-top: 0.25rem; }
+    .mock-card-score { font-size: 1.5rem; font-weight: 800; color: rgba(255,255,255,0.9); }
+    .mock-card-attendance {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.7);
+    }
+    .mock-card-attendance strong { color: var(--primary-fg); }
+    .mock-card-attendance .pct { margin-left: auto; font-size: 0.75rem; font-weight: 700; color: #4ade80; }
+    .mock-card-post { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem; }
+    .mock-card-time { font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-bottom: 0.5rem; }
+    .mock-card-text { font-size: 0.875rem; color: rgba(255,255,255,0.8); line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+    .floating-stat {
+      position: absolute;
+      bottom: -1rem;
+      left: -1rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+    .floating-stat-icon { color: #22c55e; font-size: 1.125rem; }
+    .floating-stat-label { font-size: 0.75rem; color: var(--muted-fg); }
+    .floating-stat-value { font-size: 0.875rem; font-weight: 700; color: var(--fg); }
+    @media (max-width: 640px) { .floating-stat { display: none; } }
+
+    /* ── Health Bar ── */
+    .health-bar { display: flex; flex-direction: column; gap: 0.25rem; }
+    .health-bar-segments { display: flex; gap: 0.25rem; }
+    .health-bar-segment {
+      flex: 1;
+      height: 1rem;
+      border-radius: 2px;
+      background: rgba(255,255,255,0.12);
+      transition: opacity 0.2s;
+    }
+    .health-bar-segment.filled { background: var(--seg-color); }
+    .health-bar-labels { display: flex; align-items: center; justify-content: space-between; }
+    .health-bar-label { font-size: 0.75rem; color: rgba(255,255,255,0.5); }
+    .health-bar-score { font-size: 0.75rem; font-weight: 700; }
+
+    /* small variant */
+    .health-bar-sm .health-bar-segment { height: 0.5rem; }
+    .health-bar-sm .health-bar-segments { gap: 0.125rem; }
+
+    /* ── Section: Feed + Leaderboard ── */
+    .section-light { padding: 5rem 0; background: var(--bg); }
+    .section-dark {
+      padding: 6rem 0;
+      background: var(--primary);
+      position: relative;
+      overflow: hidden;
+    }
+    .section-dark .grid-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    .section-dark-inner { position: relative; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    @media (min-width: 1024px) { .two-col { grid-template-columns: 1fr 1fr; gap: 2.5rem; } }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .section-heading h2 { font-size: 1.25rem; font-weight: 700; color: var(--fg); }
+    .section-heading-dark h2 { color: var(--primary-fg); }
+    .pulse-dot {
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+      background: #22c55e;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.3); }
+    }
+
+    /* Feed cards */
+    .feed-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1rem;
+      margin-bottom: 0.75rem;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .feed-card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+    .feed-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem; }
+    .feed-card-club { font-size: 0.875rem; font-weight: 600; color: var(--fg); }
+    .feed-card-tag {
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 0.125rem 0.5rem;
+      border-radius: 9999px;
+      margin-left: 0.5rem;
+    }
+    .feed-card-time { font-size: 0.75rem; color: var(--muted-fg); }
+    .feed-card-text { font-size: 0.875rem; color: var(--muted-fg); line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+    /* Leaderboard cards */
+    .lb-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1rem;
+      margin-bottom: 0.75rem;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .lb-card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+    .lb-card-inner { display: flex; align-items: flex-start; gap: 1rem; }
+    .lb-rank { font-size: 1.5rem; font-weight: 800; width: 2rem; flex-shrink: 0; line-height: 1; }
+    .lb-info { flex: 1; min-width: 0; }
+    .lb-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.25rem; }
+    .lb-name { font-size: 0.875rem; font-weight: 600; color: var(--fg); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .lb-members { font-size: 0.75rem; color: var(--muted-fg); flex-shrink: 0; margin-left: 0.5rem; }
+    .lb-bottom { display: flex; align-items: center; justify-content: space-between; margin-top: 0.375rem; }
+    .lb-tag { font-size: 0.75rem; color: var(--muted-fg); }
+    .lb-pct { font-size: 0.75rem; font-weight: 700; color: #22c55e; }
+
+    /* ── Health Explainer ── */
+    .three-col {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    @media (min-width: 768px) { .three-col { grid-template-columns: repeat(3, 1fr); } }
+
+    .explainer-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 1rem;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .explainer-value { font-size: 3rem; font-weight: 800; color: var(--accent); line-height: 1; }
+    .explainer-label { font-size: 1rem; font-weight: 700; color: var(--primary-fg); }
+    .explainer-desc { font-size: 0.875rem; color: rgba(255,255,255,0.6); line-height: 1.6; }
+
+    .text-center { text-align: center; }
+    .section-eyebrow { font-size: 1.125rem; font-weight: 700; color: var(--accent); margin-bottom: 1rem; }
+    .section-h2-light { font-size: clamp(1.875rem, 4vw, 3rem); font-weight: 800; color: var(--primary-fg); margin-bottom: 1rem; }
+    .section-desc { font-size: 1rem; color: rgba(255,255,255,0.6); max-width: 40rem; margin: 0 auto; }
+    .section-h2-dark { font-size: clamp(1.875rem, 4vw, 2.5rem); font-weight: 800; color: var(--fg); margin-bottom: 0.75rem; }
+    .mb-14 { margin-bottom: 3.5rem; }
+
+    /* ── Roles ── */
+    .role-card {
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .role-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+    .role-label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem; display: block; }
+    .role-tagline { font-size: 1.25rem; font-weight: 700; color: var(--fg); }
+    .role-bullets { display: flex; flex-direction: column; gap: 0.625rem; }
+    .role-bullet { display: flex; align-items: flex-start; gap: 0.625rem; font-size: 0.875rem; color: var(--muted-fg); }
+    .role-dot { width: 0.375rem; height: 0.375rem; border-radius: 50%; margin-top: 0.375rem; flex-shrink: 0; }
+
+    /* ── CTA ── */
+    .cta-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    @media (min-width: 1024px) { .cta-grid { grid-template-columns: 1fr 1fr; } }
+    .cta-h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; color: var(--primary-fg); line-height: 1.1; margin-bottom: 0.75rem; }
+    .cta-sub { font-size: clamp(1.75rem, 3.5vw, 2.5rem); font-weight: 800; color: var(--accent); margin-bottom: 1.5rem; }
+    .cta-desc { font-size: 1rem; color: rgba(255,255,255,0.6); max-width: 28rem; }
+    .cta-form {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 1rem;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .cta-label { font-size: 0.875rem; font-weight: 500; color: rgba(255,255,255,0.8); display: block; margin-bottom: 0.375rem; }
+    .cta-input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: var(--primary-fg);
+      font-size: 0.875rem;
+      font-family: var(--font-sans);
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .cta-input::placeholder { color: rgba(255,255,255,0.3); }
+    .cta-input:focus { border-color: var(--accent); }
+    .cta-btn-primary {
+      width: 100%;
+      text-align: center;
+      padding: 0.75rem 1.5rem;
+      background: var(--accent);
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.875rem;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      transition: filter 0.15s, transform 0.1s;
+      display: block;
+    }
+    .cta-btn-primary:hover { filter: brightness(1.1); }
+    .cta-btn-primary:active { transform: scale(0.98); }
+    .cta-divider { display: flex; align-items: center; gap: 0.75rem; }
+    .cta-divider-line { flex: 1; height: 1px; background: rgba(255,255,255,0.1); }
+    .cta-divider-text { font-size: 0.75rem; color: rgba(255,255,255,0.3); }
+    .cta-btn-secondary {
+      width: 100%;
+      text-align: center;
+      padding: 0.75rem 1.5rem;
+      background: transparent;
+      color: rgba(255,255,255,0.7);
+      font-weight: 600;
+      font-size: 0.75rem;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,0.2);
+      cursor: pointer;
+      transition: border-color 0.15s, color 0.15s;
+      display: block;
+    }
+    .cta-btn-secondary:hover { border-color: rgba(255,255,255,0.4); color: var(--primary-fg); }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--primary);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 2rem 0;
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-logo { font-family: var(--font-heading); font-size: 1rem; font-weight: 800; color: var(--primary-fg); }
+    .footer-logo span { color: var(--accent); }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-link { font-size: 0.8125rem; color: rgba(255,255,255,0.5); transition: color 0.15s; }
+    .footer-link:hover { color: rgba(255,255,255,0.85); }
+    .footer-copy { font-size: 0.8125rem; color: rgba(255,255,255,0.35); }
+
+    /* ── Animations ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .fade-up-delay-1 { transition-delay: 0.1s; }
+    .fade-up-delay-2 { transition-delay: 0.2s; }
+    .fade-up-delay-3 { transition-delay: 0.3s; }
+    .fade-up-delay-4 { transition-delay: 0.4s; }
+
+    /* ── Arrow icon ── */
+    .arrow-icon { display: inline-block; transition: transform 0.15s; }
+    .btn-primary:hover .arrow-icon { transform: translateX(3px); }
+
+    /* ── Trending icon ── */
+    .icon-trending { color: var(--accent); }
+  </style>
+</head>
+<body>
+
+  <!-- ── HEADER ── -->
+  <header>
+    <nav class="container">
+      <div class="nav-inner">
+        <a href="#" class="nav-logo">Campus<span>Commons</span></a>
+        <div class="nav-links">
+          <a href="#explore" class="nav-link">Explore</a>
+          <a href="#how-it-works" class="nav-link">How it works</a>
+          <a href="#get-started" class="btn-nav">Sign In</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ── HERO ── -->
+  <section class="hero" aria-label="Hero">
+    <div class="hero-grid-overlay"></div>
+    <div class="hero-blob"></div>
+
+    <div class="container">
+      <div class="hero-inner">
+        <!-- Left -->
+        <div>
+          <span class="hero-badge fade-up visible">Now live at Bentley University</span>
+          <h1 class="hero-h1 fade-up visible fade-up-delay-1">Campus life, finally organized.</h1>
+          <p class="hero-sub fade-up visible fade-up-delay-2">
+            See which clubs are thriving, track real attendance, and stop guessing. Campus Commons gives every student a live view of campus — powered by a health score system that actually means something.
+          </p>
+          <div class="hero-ctas fade-up visible fade-up-delay-3">
+            <a href="#get-started" class="btn-primary">
+              Sign In
+              <span class="arrow-icon">→</span>
+            </a>
+            <a href="#explore" class="btn-outline">Explore Clubs</a>
+          </div>
+        </div>
+
+        <!-- Right: Mock Club Card -->
+        <div style="position:relative;" class="fade-up visible fade-up-delay-2">
+          <div class="mock-card">
+            <div class="mock-card-header">
+              <div>
+                <div style="display:flex;align-items:center;gap:0.375rem;margin-bottom:0.25rem;">
+                  <span class="mock-card-dot"></span>
+                  <span class="mock-card-tag">Business</span>
+                </div>
+                <div class="mock-card-name">Entrepreneurship Society</div>
+              </div>
+              <div class="mock-card-score">87</div>
+            </div>
+
+            <!-- Health bar -->
+            <div class="health-bar" id="hero-health-bar">
+              <div class="health-bar-segments" id="hero-segments"></div>
+              <div class="health-bar-labels">
+                <span class="health-bar-label">Health Score</span>
+                <span class="health-bar-score" style="color:#f5a800;">87/100</span>
+              </div>
+            </div>
+
+            <div class="mock-card-attendance">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--accent);flex-shrink:0;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <span><strong>42 / 50</strong> attended last meeting</span>
+              <span class="pct">84%</span>
+            </div>
+
+            <div class="mock-card-post">
+              <div class="mock-card-time">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline;vertical-align:middle;margin-right:4px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                14 mins ago
+              </div>
+              <p class="mock-card-text">Just wrapped our pitch competition — 12 teams, 3 winners, and one idea that might actually change things. See you next Thursday.</p>
+            </div>
+          </div>
+
+          <div class="floating-stat">
+            <span class="floating-stat-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:#22c55e;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            </span>
+            <div>
+              <div class="floating-stat-label">This week</div>
+              <div class="floating-stat-value">+12 new members</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── LIVE FEED + LEADERBOARD ── -->
+  <section id="explore" class="section-light" aria-label="Live club feed and leaderboard">
+    <div class="container">
+      <div class="two-col">
+
+        <!-- News Feed -->
+        <div>
+          <div class="section-heading">
+            <span class="pulse-dot"></span>
+            <h2>What's Happening Right Now</h2>
+          </div>
+
+          <div id="news-feed"></div>
+        </div>
+
+        <!-- Leaderboard -->
+        <div>
+          <div class="section-heading">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-trending"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            <h2>Top Clubs This Week</h2>
+          </div>
+
+          <div id="leaderboard"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── HEALTH SCORE EXPLAINER ── -->
+  <section id="how-it-works" class="section-dark" aria-label="Health score explainer">
+    <div class="grid-overlay"></div>
+    <div class="container section-dark-inner">
+      <div class="text-center mb-14">
+        <h2 class="section-h2-light fade-up">Every club has a health score.</h2>
+        <p class="section-eyebrow fade-up fade-up-delay-1">Like a game, it goes up when you show up.</p>
+        <p class="section-desc fade-up fade-up-delay-2">The health score isn't a grade — it's a live signal. It tracks attendance, event performance, and community growth to give every student an honest read on which clubs are worth joining.</p>
+      </div>
+
+      <div class="three-col">
+        <div class="explainer-card fade-up">
+          <div class="explainer-value">94%</div>
+          <div class="explainer-label">Attendance Tracking</div>
+          <p class="explainer-desc">Every meeting logged. Every no-show counted. The score reflects reality, not promises.</p>
+        </div>
+        <div class="explainer-card fade-up fade-up-delay-1">
+          <div class="explainer-value">3×</div>
+          <div class="explainer-label">Event Performance</div>
+          <p class="explainer-desc">Clubs that host events and fill them score higher. Hosting matters. Turnout matters more.</p>
+        </div>
+        <div class="explainer-card fade-up fade-up-delay-2">
+          <div class="explainer-value">↑12</div>
+          <div class="explainer-label">Community Growth</div>
+          <p class="explainer-desc">New members joining and staying is the strongest signal a club is doing something right.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ROLES ── -->
+  <section class="section-light" aria-label="How it works for each role">
+    <div class="container">
+      <div class="text-center mb-14">
+        <h2 class="section-h2-dark fade-up">Built for everyone on campus.</h2>
+      </div>
+      <div class="three-col">
+        <div class="role-card fade-up" style="border-top:3px solid var(--primary);">
+          <div>
+            <span class="role-label" style="color:var(--primary);">Students</span>
+            <div class="role-tagline">See which clubs are thriving</div>
+          </div>
+          <ul class="role-bullets">
+            <li class="role-bullet"><span class="role-dot" style="background:var(--primary);"></span><span>Live health scores for every club</span></li>
+            <li class="role-bullet"><span class="role-dot" style="background:var(--primary);"></span><span>Real attendance vs. RSVP data</span></li>
+            <li class="role-bullet"><span class="role-dot" style="background:var(--primary);"></span><span>News feed updated every hour</span></li>
+          </ul>
+        </div>
+        <div class="role-card fade-up fade-up-delay-1" style="border-top:3px solid var(--accent);">
+          <div>
+            <span class="role-label" style="color:var(--accent);">Club Admins</span>
+            <div class="role-tagline">Log your numbers, own your score</div>
+          </div>
+          <ul class="role-bullets">
+            <li class="role-bullet"><span class="role-dot" style="background:var(--accent);"></span><span>Input attendance and event data</span></li>
+            <li class="role-bullet"><span class="role-dot" style="background:var(--accent);"></span><span>Post once a day to the campus feed</span></li>
+            <li class="role-bullet"><span class="role-dot" style="background:var(--accent);"></span><span>Track your club's score over time</span></li>
+          </ul>
+        </div>
+        <div class="role-card fade-up fade-up-delay-2" style="border-top:3px solid #22c55e;">
+          <div>
+            <span class="role-label" style="color:#22c55e;">University Staff</span>
+            <div class="role-tagline">Allocate funding with real data</div>
+          </div>
+          <ul class="role-bullets">
+            <li class="role-bullet"><span class="role-dot" style="background:#22c55e;"></span><span>Sector-level health score breakdowns</span></li>
+            <li class="role-bullet"><span class="role-dot" style="background:#22c55e;"></span><span>Move funding where it's needed</span></li>
+            <li class="role-bullet"><span class="role-dot" style="background:#22c55e;"></span><span>No more guessing which clubs are active</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section id="get-started" class="section-dark" aria-label="Sign in call to action">
+    <div class="grid-overlay"></div>
+    <div class="container section-dark-inner">
+      <div class="cta-grid">
+        <div>
+          <h2 class="cta-h2 fade-up">Your campus is already here.</h2>
+          <p class="cta-sub fade-up fade-up-delay-1">Are you?</p>
+          <p class="cta-desc fade-up fade-up-delay-2">Campus Commons is live at Bentley University. Sign in with your university credentials and see where your clubs stand.</p>
+        </div>
+        <div class="cta-form fade-up fade-up-delay-1">
+          <div>
+            <label class="cta-label" for="email">University email</label>
+            <input class="cta-input" id="email" type="email" placeholder="you@bentley.edu" />
+          </div>
+          <a href="#" class="cta-btn-primary">Sign In to Campus Commons</a>
+          <div class="cta-divider">
+            <div class="cta-divider-line"></div>
+            <span class="cta-divider-text">or</span>
+            <div class="cta-divider-line"></div>
+          </div>
+          <a href="#" class="cta-btn-secondary">Request access for your university</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">Campus<span>Commons</span></div>
+        <div class="footer-links">
+          <a href="#" class="footer-link">About</a>
+          <a href="#" class="footer-link">Privacy</a>
+          <a href="#" class="footer-link">Terms</a>
+        </div>
+        <div class="footer-copy">© 2026 Campus Commons. Bentley University pilot.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── Data ──────────────────────────────────────────────────────────────────
+
+    const tagColors = {
+      blue:    '#003865',
+      purple:  '#7c3aed',
+      green:   '#16a34a',
+      teal:    '#0d9488',
+      orange:  '#ea580c',
+      Finance: '#16a34a',
+      Business:'#003865',
+      Arts:    '#7c3aed',
+      Environment: '#0d9488',
+      Gaming:  '#ea580c',
+    };
+
+    const newsFeed = [
+      { clubName: 'Entrepreneurship Society', tag: 'Business', tagColor: 'blue',   postedAgo: '14 mins ago', text: 'Just wrapped our pitch competition — 12 teams, 3 winners, and one idea that might actually change things. See you next Thursday.' },
+      { clubName: 'Bentley Dance Collective',  tag: 'Arts',     tagColor: 'purple', postedAgo: '31 mins ago', text: 'Spring showcase rehearsal tonight at 7pm in the Student Center. All members required. Costumes are in — come early to try yours on.' },
+      { clubName: 'Finance & Investment Club', tag: 'Finance',  tagColor: 'green',  postedAgo: '47 mins ago', text: 'Our Bloomberg terminal workshop filled up in 20 minutes. We\'re adding a second session — sign up now before it\'s gone again.' },
+      { clubName: 'Sustainability Alliance',   tag: 'Environment', tagColor: 'teal', postedAgo: '52 mins ago', text: 'Campus cleanup this Saturday 9am–12pm. Free breakfast for everyone who shows. Bring gloves if you have them — we\'ll have extras.' },
+      { clubName: 'Esports Club',              tag: 'Gaming',   tagColor: 'orange', postedAgo: '58 mins ago', text: 'Valorant tournament brackets are live. Check the Discord for your match time. First round starts Friday at 6pm. No-shows forfeit.' },
+    ];
+
+    const leaderboard = [
+      { rank: 1, name: 'Finance & Investment Club', score: 94, attendancePct: 91, members: 68, tag: 'Finance' },
+      { rank: 2, name: 'Entrepreneurship Society',  score: 87, attendancePct: 84, members: 50, tag: 'Business' },
+      { rank: 3, name: 'Bentley Dance Collective',  score: 81, attendancePct: 78, members: 34, tag: 'Arts' },
+      { rank: 4, name: 'Sustainability Alliance',   score: 76, attendancePct: 72, members: 45, tag: 'Environment' },
+      { rank: 5, name: 'Esports Club',              score: 71, attendancePct: 68, members: 82, tag: 'Gaming' },
+    ];
+
+    // ── Health bar helpers ────────────────────────────────────────────────────
+
+    function segmentColor(i) {
+      if (i < 3) return '#ef4444';
+      if (i < 5) return '#f97316';
+      if (i < 7) return '#eab308';
+      if (i < 9) return '#22c55e';
+      return '#16a34a';
+    }
+
+    function scoreColor(score) {
+      if (score < 30) return '#ef4444';
+      if (score < 50) return '#f97316';
+      if (score < 70) return '#eab308';
+      if (score < 85) return '#22c55e';
+      return '#16a34a';
+    }
+
+    function buildHealthBar(containerId, score, size) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+      const SEGMENTS = 10;
+      const filled = Math.round((score / 100) * SEGMENTS);
+      const h = size === 'sm' ? '0.5rem' : size === 'lg' ? '1rem' : '0.75rem';
+      const gap = size === 'sm' ? '0.125rem' : '0.25rem';
+      let html = `<div style="display:flex;gap:${gap};margin-bottom:0.25rem;">`;
+      for (let i = 0; i < SEGMENTS; i++) {
+        const color = i < filled ? segmentColor(i) : 'rgba(255,255,255,0.12)';
+        html += `<div style="flex:1;height:${h};border-radius:2px;background:${color};"></div>`;
+      }
+      html += '</div>';
+      container.innerHTML = html;
+    }
+
+    function buildHealthBarDark(containerId, score) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+      const SEGMENTS = 10;
+      const filled = Math.round((score / 100) * SEGMENTS);
+      let html = '<div style="display:flex;gap:0.125rem;">';
+      for (let i = 0; i < SEGMENTS; i++) {
+        const color = i < filled ? segmentColor(i) : 'hsl(0,0%,85%)';
+        html += `<div style="flex:1;height:0.5rem;border-radius:2px;background:${color};"></div>`;
+      }
+      html += '</div>';
+      container.innerHTML = html;
+    }
+
+    // ── Render news feed ──────────────────────────────────────────────────────
+
+    function renderFeed() {
+      const el = document.getElementById('news-feed');
+      el.innerHTML = newsFeed.map(post => {
+        const color = tagColors[post.tagColor] || tagColors[post.tag] || '#003865';
+        return `
+          <div class="feed-card" style="border-left:3px solid ${color};">
+            <div class="feed-card-top">
+              <div style="display:flex;align-items:center;flex-wrap:wrap;">
+                <span class="feed-card-club">${post.clubName}</span>
+                <span class="feed-card-tag" style="background:${color}20;color:${color};">${post.tag}</span>
+              </div>
+              <span class="feed-card-time">${post.postedAgo}</span>
+            </div>
+            <p class="feed-card-text">${post.text}</p>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // ── Render leaderboard ────────────────────────────────────────────────────
+
+    function rankColor(rank) {
+      if (rank === 1) return 'var(--accent)';
+      if (rank === 2) return '#94a3b8';
+      if (rank === 3) return '#cd7f32';
+      return 'var(--muted-fg)';
+    }
+
+    function renderLeaderboard() {
+      const el = document.getElementById('leaderboard');
+      el.innerHTML = leaderboard.map((club, idx) => `
+        <div class="lb-card">
+          <div class="lb-card-inner">
+            <span class="lb-rank" style="color:${rankColor(club.rank)};">#${club.rank}</span>
+            <div class="lb-info">
+              <div class="lb-top">
+                <span class="lb-name">${club.name}</span>
+                <span class="lb-members">${club.members} members</span>
+              </div>
+              <div id="lb-bar-${idx}"></div>
+              <div class="lb-bottom">
+                <span class="lb-tag">${club.tag}</span>
+                <span class="lb-pct">${club.attendancePct}% attendance</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      leaderboard.forEach((club, idx) => {
+        buildHealthBarDark(`lb-bar-${idx}`, club.score);
+      });
+    }
+
+    // ── Scroll-triggered fade-up ──────────────────────────────────────────────
+
+    function initScrollAnimations() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '-40px' });
+
+      document.querySelectorAll('.fade-up:not(.visible)').forEach(el => observer.observe(el));
+    }
+
+    // ── Init ──────────────────────────────────────────────────────────────────
+
+    document.addEventListener('DOMContentLoaded', () => {
+      buildHealthBar('hero-segments', 87, 'lg');
+      renderFeed();
+      renderLeaderboard();
+      initScrollAnimations();
+    });
+  </script>
+</body>
+</html>

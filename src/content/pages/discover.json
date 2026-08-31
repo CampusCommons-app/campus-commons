@@ -1,0 +1,29 @@
+{
+  "CATEGORIES": [
+    "All",
+    "Business",
+    "Technology",
+    "Finance",
+    "Social Impact",
+    "Academic",
+    "Social",
+    "Arts"
+  ],
+  "SORT_OPTIONS": [
+    {
+      "value": "most-active",
+      "label": "Most Active",
+      "id": "c8GFpGH877YM397fFUOgm"
+    },
+    {
+      "value": "most-members",
+      "label": "Most Members",
+      "id": "4U9omzMSTKzr8lNfRdbyV"
+    },
+    {
+      "value": "alphabetical",
+      "label": "A – Z",
+      "id": "YNa77q4fjlpp82LuyuVs9"
+    }
+  ]
+}

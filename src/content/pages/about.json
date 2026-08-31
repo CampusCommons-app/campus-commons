@@ -1,0 +1,34 @@
+{
+  "ROLES": [
+    {
+      "label": "Students",
+      "points": [
+        "Browse and follow clubs",
+        "RSVP to events",
+        "Track your own attendance",
+        "Get announcements from clubs you follow"
+      ],
+      "id": "bvUbjnhjU7U5bqpf1jAku"
+    },
+    {
+      "label": "Club officers",
+      "points": [
+        "Create and manage events",
+        "Post announcements",
+        "Generate QR check-in codes",
+        "View member analytics"
+      ],
+      "id": "lw5-Atp2NrOr54tDH7REo"
+    },
+    {
+      "label": "University staff",
+      "points": [
+        "Cross-club health overview",
+        "Attendance and engagement data",
+        "Early warning for at-risk clubs",
+        "Funding decision support"
+      ],
+      "id": "o_B_jbZd9BdzgSrEzZeHp"
+    }
+  ]
+}

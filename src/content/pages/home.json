@@ -1,0 +1,179 @@
+{
+  "hero": {
+    "headline": "Campus life, finally organized.",
+    "subhead": "See which clubs are thriving, track real attendance, and stop guessing. Campus Commons gives every student a live view of campus — powered by a health score system that actually means something.",
+    "ctaPrimary": "Sign In",
+    "ctaSecondary": "Explore Clubs"
+  },
+  "mockClub": {
+    "name": "Entrepreneurship Society",
+    "tag": "Business",
+    "healthScore": 87,
+    "attendance": "42 / 50",
+    "attendancePercent": 84,
+    "lastPost": "Just wrapped our pitch competition — 12 teams, 3 winners, and one idea that might actually change things. See you next Thursday.",
+    "postedAgo": "14 mins ago"
+  },
+  "newsFeed": {
+    "sectionTitle": "What's Happening Right Now",
+    "posts": [
+      {
+        "id": "1",
+        "clubName": "Entrepreneurship Society",
+        "tag": "Business",
+        "tagColor": "blue",
+        "postedAgo": "14 mins ago",
+        "text": "Just wrapped our pitch competition — 12 teams, 3 winners, and one idea that might actually change things. See you next Thursday."
+      },
+      {
+        "id": "2",
+        "clubName": "Bentley Dance Collective",
+        "tag": "Arts",
+        "tagColor": "purple",
+        "postedAgo": "31 mins ago",
+        "text": "Spring showcase rehearsal tonight at 7pm in the Student Center. All members required. Costumes are in — come early to try yours on."
+      },
+      {
+        "id": "3",
+        "clubName": "Finance & Investment Club",
+        "tag": "Finance",
+        "tagColor": "green",
+        "postedAgo": "47 mins ago",
+        "text": "Our Bloomberg terminal workshop filled up in 20 minutes. We're adding a second session — sign up now before it's gone again."
+      },
+      {
+        "id": "4",
+        "clubName": "Sustainability Alliance",
+        "tag": "Environment",
+        "tagColor": "teal",
+        "postedAgo": "52 mins ago",
+        "text": "Campus cleanup this Saturday 9am–12pm. Free breakfast for everyone who shows. Bring gloves if you have them — we'll have extras."
+      },
+      {
+        "id": "5",
+        "clubName": "Esports Club",
+        "tag": "Gaming",
+        "tagColor": "orange",
+        "postedAgo": "58 mins ago",
+        "text": "Valorant tournament brackets are live. Check the Discord for your match time. First round starts Friday at 6pm. No-shows forfeit."
+      }
+    ]
+  },
+  "leaderboard": {
+    "sectionTitle": "Top Clubs This Week",
+    "clubs": [
+      {
+        "id": "1",
+        "rank": 1,
+        "name": "Finance & Investment Club",
+        "healthScore": 94,
+        "attendancePercent": 91,
+        "memberCount": 68,
+        "tag": "Finance"
+      },
+      {
+        "id": "2",
+        "rank": 2,
+        "name": "Entrepreneurship Society",
+        "healthScore": 87,
+        "attendancePercent": 84,
+        "memberCount": 50,
+        "tag": "Business"
+      },
+      {
+        "id": "3",
+        "rank": 3,
+        "name": "Bentley Dance Collective",
+        "healthScore": 81,
+        "attendancePercent": 78,
+        "memberCount": 34,
+        "tag": "Arts"
+      },
+      {
+        "id": "4",
+        "rank": 4,
+        "name": "Sustainability Alliance",
+        "healthScore": 76,
+        "attendancePercent": 72,
+        "memberCount": 45,
+        "tag": "Environment"
+      },
+      {
+        "id": "5",
+        "rank": 5,
+        "name": "Esports Club",
+        "healthScore": 71,
+        "attendancePercent": 68,
+        "memberCount": 82,
+        "tag": "Gaming"
+      }
+    ]
+  },
+  "healthExplainer": {
+    "headline": "Every club has a health score.",
+    "subhead": "Like a game, it goes up when you show up.",
+    "description": "The health score isn't a grade — it's a live signal. It tracks attendance, event performance, and community growth to give every student an honest read on which clubs are worth joining.",
+    "stats": [
+      {
+        "id": "1",
+        "value": "94%",
+        "label": "Attendance Tracking",
+        "description": "Every meeting logged. Every no-show counted. The score reflects reality, not promises."
+      },
+      {
+        "id": "2",
+        "value": "3×",
+        "label": "Event Performance",
+        "description": "Clubs that host events and fill them score higher. Hosting matters. Turnout matters more."
+      },
+      {
+        "id": "3",
+        "value": "↑12",
+        "label": "Community Growth",
+        "description": "New members joining and staying is the strongest signal a club is doing something right."
+      }
+    ]
+  },
+  "roles": {
+    "headline": "Built for everyone on campus.",
+    "columns": [
+      {
+        "id": "1",
+        "role": "Students",
+        "tagline": "See which clubs are thriving",
+        "bullets": [
+          "Live health scores for every club",
+          "Real attendance vs. RSVP data",
+          "News feed updated every hour"
+        ]
+      },
+      {
+        "id": "2",
+        "role": "Club Admins",
+        "tagline": "Log your numbers, own your score",
+        "bullets": [
+          "Input attendance and event data",
+          "Post once a day to the campus feed",
+          "Track your club's score over time"
+        ]
+      },
+      {
+        "id": "3",
+        "role": "University Staff",
+        "tagline": "Allocate funding with real data",
+        "bullets": [
+          "Sector-level health score breakdowns",
+          "Move funding where it's needed",
+          "No more guessing which clubs are active"
+        ]
+      }
+    ]
+  },
+  "cta": {
+    "headline": "Your campus is already here.",
+    "subhead": "Are you?",
+    "description": "Campus Commons is live at Bentley University. Sign in with your university credentials and see where your clubs stand.",
+    "buttonLabel": "Sign In to Campus Commons",
+    "requestLabel": "Request access for your university"
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "logo/horizontal": {
+    "mediaType": "logo",
+    "currentUrl": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/40b265e1-495f-45ec-9ab6-c1434fac925b/session/32285684-d31e-4b28-a4d4-3ccb496dc459/horizontal-transparent-1164ae41-0fe2-4b44-9146-9f5655f10084/logo-logo.png",
+    "searchQuery": "A bold, modern wordmark logo for \"Campus Commons\" — a college campus club manage",
+    "alternatives": [],
+    "solidUrlMap": {
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/40b265e1-495f-45ec-9ab6-c1434fac925b/session/32285684-d31e-4b28-a4d4-3ccb496dc459/horizontal-transparent-1164ae41-0fe2-4b44-9146-9f5655f10084/logo-logo.png": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/40b265e1-495f-45ec-9ab6-c1434fac925b/session/32285684-d31e-4b28-a4d4-3ccb496dc459/horizontal-original-1164ae41-0fe2-4b44-9146-9f5655f10084/logo-logo.png"
+    },
+    "mockupUrlMap": {
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/40b265e1-495f-45ec-9ab6-c1434fac925b/session/32285684-d31e-4b28-a4d4-3ccb496dc459/horizontal-transparent-1164ae41-0fe2-4b44-9146-9f5655f10084/logo-logo.png": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/40b265e1-495f-45ec-9ab6-c1434fac925b/session/32285684-d31e-4b28-a4d4-3ccb496dc459/horizontal-transparent-1164ae41-0fe2-4b44-9146-9f5655f10084/logo-logo.png"
+    },
+    "landscapeMockupUrlMap": {},
+    "logoSourceMap": {
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/40b265e1-495f-45ec-9ab6-c1434fac925b/session/32285684-d31e-4b28-a4d4-3ccb496dc459/horizontal-transparent-1164ae41-0fe2-4b44-9146-9f5655f10084/logo-logo.png": {
+        "sessionId": "32285684-d31e-4b28-a4d4-3ccb496dc459",
+        "logoId": "1164ae41-0fe2-4b44-9146-9f5655f10084",
+        "groupId": "ded98362-f41c-4dec-9e8f-acbb1c34771a"
+      }
+    },
+    "productMockupsMap": {
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/40b265e1-495f-45ec-9ab6-c1434fac925b/session/32285684-d31e-4b28-a4d4-3ccb496dc459/horizontal-transparent-1164ae41-0fe2-4b44-9146-9f5655f10084/logo-logo.png": [
+        {
+          "type": "mug",
+          "label": "Mug",
+          "url": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/40b265e1-495f-45ec-9ab6-c1434fac925b/session/32285684-d31e-4b28-a4d4-3ccb496dc459/horizontal-mockup-mug-1164ae41-0fe2-4b44-9146-9f5655f10084/logo-logo.png"
+        },
+        {
+          "type": "card",
+          "label": "Business Card",
+          "url": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/40b265e1-495f-45ec-9ab6-c1434fac925b/session/32285684-d31e-4b28-a4d4-3ccb496dc459/horizontal-mockup-card-1164ae41-0fe2-4b44-9146-9f5655f10084/logo-logo.png"
+        },
+        {
+          "type": "tshirt",
+          "label": "T-Shirt",
+          "url": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/40b265e1-495f-45ec-9ab6-c1434fac925b/session/32285684-d31e-4b28-a4d4-3ccb496dc459/horizontal-mockup-tshirt-1164ae41-0fe2-4b44-9146-9f5655f10084/logo-logo.png"
+        },
+        {
+          "type": "box",
+          "label": "Packaging",
+          "url": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/40b265e1-495f-45ec-9ab6-c1434fac925b/session/32285684-d31e-4b28-a4d4-3ccb496dc459/horizontal-mockup-box-1164ae41-0fe2-4b44-9146-9f5655f10084/logo-logo.png"
+        }
+      ]
+    },
+    "productMockups": [
+      {
+        "type": "mug",
+        "label": "Mug",
+        "url": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/40b265e1-495f-45ec-9ab6-c1434fac925b/session/32285684-d31e-4b28-a4d4-3ccb496dc459/horizontal-mockup-mug-1164ae41-0fe2-4b44-9146-9f5655f10084/logo-logo.png"
+      },
+      {
+        "type": "card",
+        "label": "Business Card",
+        "url": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/40b265e1-495f-45ec-9ab6-c1434fac925b/session/32285684-d31e-4b28-a4d4-3ccb496dc459/horizontal-mockup-card-1164ae41-0fe2-4b44-9146-9f5655f10084/logo-logo.png"
+      },
+      {
+        "type": "tshirt",
+        "label": "T-Shirt",
+        "url": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/40b265e1-495f-45ec-9ab6-c1434fac925b/session/32285684-d31e-4b28-a4d4-3ccb496dc459/horizontal-mockup-tshirt-1164ae41-0fe2-4b44-9146-9f5655f10084/logo-logo.png"
+      },
+      {
+        "type": "box",
+        "label": "Packaging",
+        "url": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/40b265e1-495f-45ec-9ab6-c1434fac925b/session/32285684-d31e-4b28-a4d4-3ccb496dc459/horizontal-mockup-box-1164ae41-0fe2-4b44-9146-9f5655f10084/logo-logo.png"
+      }
+    ],
+    "userModified": false,
+    "createdAt": "2026-08-22T01:27:57.827Z",
+    "lastUpdated": "2026-08-22T01:28:25.064Z",
+    "surfaceMode": "dark",
+    "generatedForSurfaceColor": "#003865",
+    "darkSurfaceUrl": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/40b265e1-495f-45ec-9ab6-c1434fac925b/session/32285684-d31e-4b28-a4d4-3ccb496dc459/horizontal-transparent-1164ae41-0fe2-4b44-9146-9f5655f10084/logo-logo.png",
+    "logoGroupId": "ded98362-f41c-4dec-9e8f-acbb1c34771a"
+  },
+  "logo/favicon": {
+    "mediaType": "logo",
+    "currentUrl": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/40b265e1-495f-45ec-9ab6-c1434fac925b/session/750b6724-f438-4f4c-a5db-22ee038d3b7e/favicon-transparent-e8b2c332-1740-4aca-8486-3d33abb11302/logo-logo.png",
+    "searchQuery": "favicon",
+    "alternatives": [],
+    "logoSourceMap": {
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/40b265e1-495f-45ec-9ab6-c1434fac925b/session/750b6724-f438-4f4c-a5db-22ee038d3b7e/favicon-transparent-e8b2c332-1740-4aca-8486-3d33abb11302/logo-logo.png": {
+        "sessionId": "750b6724-f438-4f4c-a5db-22ee038d3b7e",
+        "logoId": "e8b2c332-1740-4aca-8486-3d33abb11302",
+        "groupId": "ded98362-f41c-4dec-9e8f-acbb1c34771a"
+      }
+    },
+    "logoGroupId": "ded98362-f41c-4dec-9e8f-acbb1c34771a",
+    "userModified": false,
+    "createdAt": "2026-08-22T01:28:11.077Z",
+    "lastUpdated": "2026-08-22T01:28:25.305Z",
+    "surfaceMode": "dark",
+    "generatedForSurfaceColor": "#003865",
+    "darkSurfaceUrl": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/40b265e1-495f-45ec-9ab6-c1434fac925b/session/750b6724-f438-4f4c-a5db-22ee038d3b7e/favicon-transparent-e8b2c332-1740-4aca-8486-3d33abb11302/logo-logo.png"
+  },
+  "hero/bentley-watermark": {
+    "mediaType": "image",
+    "currentUrl": "/airo-assets/uploads/hero-bentley-watermark-fe6f5355.png",
+    "searchQuery": "bentley university logo shield emblem",
+    "alternatives": [
+      "/airo-assets/uploads/hero-bentley-watermark-1ec4a41b.webp"
+    ],
+    "userModified": true,
+    "createdAt": "2026-08-22T01:36:35.279Z",
+    "lastUpdated": "2026-08-22T01:40:29.180Z",
+    "uploadSources": {
+      "/airo-assets/uploads/hero-bentley-watermark-1ec4a41b.webp": "5yoje2rvd6_1787362582311_file_qejFZY-H_1.webp",
+      "/airo-assets/uploads/hero-bentley-watermark-fe6f5355.png": "5yoje2rvd6_1787362820157_file_WOTQVFruCW.png"
+    },
+    "uploadContentHash": "45149057f85b7690dce1b692507719189f6e4d0d77555ec1795c7c860ce8c570",
+    "caption": "bentley university logo shield emblem"
+  }
+}
